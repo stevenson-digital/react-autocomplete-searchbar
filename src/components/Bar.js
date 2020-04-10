@@ -13,6 +13,9 @@ const Bar = () => {
       let regex = new RegExp(`^${value}`, 'i');
       results = countries.sort().filter(v => regex.test(v))
       setResults(results)
+      
+    } else {
+      setResults([])
     }
   }
 

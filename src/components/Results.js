@@ -3,6 +3,10 @@ import React from 'react'
 const Results = (props) => {
   const { results } = props
 
+  const selectResult = (result) => {
+    console.log(result)
+  }
+
   const renderResults = () => {
     if (results.length === 0)
       return null
@@ -10,16 +14,16 @@ const Results = (props) => {
     return (
       <ul className="Results__ul">
         {
-          results.map((item, index) => (
+          results.map((result, index) => (
               <li
                 className="Results__li"
                 key={index}
               >
                 <button
                   className="Results__result u-btn-clear"
-                  onClick={() => this.selectedText(item)}
+                  onClick={() => selectResult(result)}
                 >
-                  {item}
+                  {result}
                 </button>
               </li>
             )
