@@ -1,10 +1,13 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import Bar from './components/Bar';
 
 function App() {
   return (
     <div className="App">
-      Searchbar App
+      <div className="Wrapper">
+        <Bar />
+      </div>
     </div>
   );
 }

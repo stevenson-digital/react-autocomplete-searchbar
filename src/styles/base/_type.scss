@@ -1,0 +1,34 @@
+/* ===========================
+  Fonts & Type
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+  font-family: $f-body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $c-dark-grey;
+  font-weight: normal;
+  line-height: 1.5;
+  background-color: $c-light-grey;
+  @include scale-property(font-size, 18px, 18px, 16px);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  font-weight: normal;
+  margin: 0;
+}
+
+a:focus {
+  outline: none;
+}
+
+.f-vogue-72-42 {
+  font-family: $f-heading;
+  line-height: 1;
+  @include scale-property(font-size, 72px, 56px, 42px);
+}

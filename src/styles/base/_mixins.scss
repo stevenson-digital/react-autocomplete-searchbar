@@ -1,0 +1,14 @@
+/* ========================================
+  Mixins
+======================================== */
+@mixin scale-property($property, $large, $medium, $small) {
+  #{$property}: #{$large};
+
+  @media (max-width: #{$b-large}) {
+    #{$property}: #{$medium};
+  }
+
+  @media (max-width: #{$b-small}) {
+    #{$property}: #{$small};
+  }
+}

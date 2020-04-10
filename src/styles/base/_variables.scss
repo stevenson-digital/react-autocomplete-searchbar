@@ -1,0 +1,30 @@
+/*  ==================================
+  Breakpoints
+=================================== */
+$b-small: 640px;
+$b-medium: 980px;
+$b-xmedium: 1200px;
+$b-large: 1400px;
+$b-xlarge: 1800px;
+
+/*  ==================================
+  Colors
+=================================== */
+$c-white: #FFFFFF;
+$c-light-grey: #edecee;
+$c-mid-grey: #a6a6a6;
+$c-dark-grey: #797979;
+
+/*  ==================================
+  Fonts
+=================================== */
+$f-heading: 'Open Sans', sans-serif;
+$f-body: 'Open Sans', sans-serif;
+
+/*  ==================================
+  Transitions
+=================================== */
+$t-default-ms: 250ms;
+$t-standard: $t-default-ms linear;
+$t-cubic-bez: cubic-bezier(0.77, 0, 0.175, 1);
+$t-fade-anim: 2s 0s cubic-bezier(.19,1,.22,1) forwards;
