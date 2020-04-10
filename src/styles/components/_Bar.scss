@@ -4,6 +4,7 @@
 .Bar {
   position: relative;
   width: 400px;
+  border-radius: 12px;
 }
 
 /* ===========================
@@ -16,6 +17,8 @@
   align-items: center;
   background-color: $c-white;
   border-radius: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .Bar__icon {
@@ -25,6 +28,8 @@
   border-bottom-left-radius: 12px;
   display: flex;
   align-items: center;
+  background-color: transparent;
+  transition: background-color $t-standard;
 
   svg {
     background: $c-mid-grey;
@@ -49,9 +54,20 @@
   border-bottom-right-radius: 12px;
   outline: 0;
   color: $c-dark-grey;
+  transition: background-color $t-standard;
 
   &::-webkit-input-placeholder,
   &::placeholder {
     color: $c-mid-grey;
+  }
+}
+
+/* ===========================
+  Modifiers
+=========================== */
+.Bar--has-results {
+  .Bar__icon,
+  .Bar__input {
+    background-color: $c-light-grey;
   }
 }

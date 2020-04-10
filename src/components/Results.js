@@ -8,15 +8,20 @@ const Results = (props) => {
       return null
 
     return (
-      <ul>
+      <ul className="Results__ul">
         {
           results.map((item, index) => (
-            <li
-              key={index}
-              onClick={() => this.selectedText(item)}
-            >
-              {item}
-            </li>
+              <li
+                className="Results__li"
+                key={index}
+              >
+                <button
+                  className="Results__result u-btn-clear"
+                  onClick={() => this.selectedText(item)}
+                >
+                  {item}
+                </button>
+              </li>
             )
           )
         }
@@ -25,7 +30,7 @@ const Results = (props) => {
   }
 
   return (
-    <div className="Results">
+    <div className={"Results " + ((results.length > 0) ? 'Results--populated' : '')}>
       {renderResults()}
     </div>
   )
