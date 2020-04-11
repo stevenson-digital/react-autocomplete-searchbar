@@ -26,6 +26,7 @@ const Bar = () => {
   const handleInputChange = (e) => {
     const value = e.target.value
     
+    setHasSelected(false)
     setSearchTerm(value)
     matchResults(value)
     setFocussed((value.length > 0) ? true : false)
@@ -39,6 +40,12 @@ const Bar = () => {
 
   const clearResults = () =>
     setResults([])
+  
+  const clearSearch = () => {
+    setHasSelected(false)
+    setSearchTerm('')
+    setFocussed(false)
+  }
 
   return (
     <div className={"Bar a-fade-in-up " + ((results.length > 0) ? 'Bar--has-results' : '') + ((hasSelected) ? 'Bar--has-selected' : '')}>
@@ -60,7 +67,10 @@ const Bar = () => {
               </g>
             </svg>
           </div>
-          <button className={"Bar__icon-clear u-btn-clear "  + (focussed ? 'dark' : '')}>
+          <button
+            className={"Bar__icon-clear u-btn-clear "  + (focussed ? 'dark' : '')}
+            onClick={clearSearch}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 409.806 409.806">
               <g>
                 <path d="M228.929,205.01L404.596,29.343c6.78-6.548,6.968-17.352,0.42-24.132c-6.548-6.78-17.352-6.968-24.132-0.42
