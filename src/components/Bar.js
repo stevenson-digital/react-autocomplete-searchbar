@@ -18,7 +18,7 @@ const Bar = () => {
       setResults(results)
 
     } else {
-      setResults([])
+      clearResults()
     }
   }
 
@@ -34,9 +34,17 @@ const Bar = () => {
     setSearchTerm(value)
   }
 
+  const clearResults = () => {
+    setResults([])
+  }
+
   return (
     <div className={"Bar a-fade-in-up " + ((results.length > 0) ? 'Bar--has-results' : '')}>
-      <Results results={results} updateInputValue={updateInputValue} />
+      <Results
+        results={results}
+        updateInputValue={updateInputValue}
+        clearResults={clearResults}
+      />
       <div className="Bar__inner">  
         <div className={"Bar__icon " + (focussed ? 'dark' : '')}>
           <svg></svg>

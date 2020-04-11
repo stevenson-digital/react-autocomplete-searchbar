@@ -4,7 +4,7 @@
 .Bar {
   position: relative;
   width: 400px;
-  border-radius: 12px;
+  border-radius: $br-standard;
 }
 
 /* ===========================
@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   background-color: $c-white;
-  border-radius: 12px;
+  border-radius: $br-standard;
   position: relative;
   z-index: 1;
 }
@@ -24,8 +24,8 @@
 .Bar__icon {
   height: 100%;
   padding: 0 15px 0 20px;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
+  border-top-left-radius: $br-standard;
+  border-bottom-left-radius: $br-standard;
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -50,8 +50,8 @@
   height: 100%;
   background-color: transparent;
   width: calc(100% - 50px);
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-top-right-radius: $br-standard;
+  border-bottom-right-radius: $br-standard;
   outline: 0;
   color: $c-dark-grey;
   transition: background-color $t-standard;

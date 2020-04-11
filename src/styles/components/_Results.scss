@@ -6,7 +6,7 @@
   position: absolute;
   z-index: 0;
   background-color: $c-white;
-  border-radius: 12px;
+  border-radius: $br-standard;
   transform: translate3d(0, 0, 0);
   transition: transform $t-standard, width $t-standard;
 
