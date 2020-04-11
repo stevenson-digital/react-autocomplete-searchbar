@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import countries from '../Countries'
 import Results from './Results'
-import useSearchTerm from '../hooks/useSearchTerm'
+// import useSearchTerm from '../hooks/useSearchTerm'
 
 const Bar = () => {
-  const {searchTerm, handleSetSearchTerm} = useSearchTerm()
+  // const { searchTerm, handleSetSearchTerm } = useSearchTerm()
+  const [searchTerm, setSearchTerm] = useState('')
   const [focussed, setFocussed] = useState(false)
   const [results, setResults] = useState([])
 
@@ -24,14 +25,18 @@ const Bar = () => {
   const handleInputChange = (e) => {
     const value = e.target.value
     
-    handleSetSearchTerm(value)
+    setSearchTerm(value)
     matchResults(value)
     setFocussed((value.length > 0) ? true : false)
   }
 
+  const updateInputValue = (value) => {
+    setSearchTerm(value)
+  }
+
   return (
-    <div className={"Bar " + ((results.length > 0) ? 'Bar--has-results' : '')}>
-      <Results results={results} />
+    <div className={"Bar a-fade-in-up " + ((results.length > 0) ? 'Bar--has-results' : '')}>
+      <Results results={results} updateInputValue={updateInputValue} />
       <div className="Bar__inner">  
         <div className={"Bar__icon " + (focussed ? 'dark' : '')}>
           <svg></svg>
