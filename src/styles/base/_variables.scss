@@ -24,7 +24,7 @@ $f-body: 'Open Sans', sans-serif;
 /*  ==================================
   Transitions
 =================================== */
-$t-default-ms: 200ms;
+$t-default-ms: 150ms;
 $t-standard: $t-default-ms linear;
 $t-cubic-bez: cubic-bezier(0.77, 0, 0.175, 1);
 $t-fade-anim: 2s 0s cubic-bezier(.19,1,.22,1) forwards;

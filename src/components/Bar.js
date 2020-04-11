@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import countries from '../Countries'
 import Results from './Results'
+import useSearchTerm from '../hooks/useSearchTerm'
 
 const Bar = () => {
+  const {searchTerm, handleSetSearchTerm} = useSearchTerm()
   const [focussed, setFocussed] = useState(false)
   const [results, setResults] = useState([])
 
@@ -13,7 +15,7 @@ const Bar = () => {
       let regex = new RegExp(`^${value}`, 'i');
       results = countries.sort().filter(v => regex.test(v))
       setResults(results)
-      
+
     } else {
       setResults([])
     }
@@ -22,6 +24,7 @@ const Bar = () => {
   const handleInputChange = (e) => {
     const value = e.target.value
     
+    handleSetSearchTerm(value)
     matchResults(value)
     setFocussed((value.length > 0) ? true : false)
   }
@@ -38,6 +41,7 @@ const Bar = () => {
           type="text"
           placeholder="Search" 
           onChange={handleInputChange}
+          value={searchTerm || ''}
         />
       </div>
     </div>
