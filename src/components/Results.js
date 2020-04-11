@@ -1,11 +1,12 @@
 import React from 'react'
 
 const Results = (props) => {
-  const { results, updateInputValue, clearResults } = props
+  const { results, updateInputValue, clearResults, updateHasSelected } = props
 
   const selectResult = (result) => {
     updateInputValue(result)
     clearResults()
+    updateHasSelected()
   }
 
   const renderResults = () => {

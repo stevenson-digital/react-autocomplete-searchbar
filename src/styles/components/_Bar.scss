@@ -5,6 +5,7 @@
   position: relative;
   width: 400px;
   border-radius: $br-standard;
+  @include default-shadow();
 }
 
 /* ===========================
@@ -30,18 +31,37 @@
   align-items: center;
   background-color: transparent;
   transition: background-color $t-standard;
+}
+
+.Bar__icon-search,
+.Bar__icon-clear {
+  width: 15px;
+  height: 15px;
+  font-size: 0;
 
   svg {
-    background: $c-mid-grey;
-    width: 15px;
-    height: 15px;
-    transition: background-color $t-standard;
+    height: 100%;
+    fill: $c-mid-grey
   }
 
   &.dark {
     svg {
-      background: $c-dark-grey;
+      fill: $c-dark-grey
     }
+  }
+}
+
+.Bar__icon-clear {
+  display: none;
+
+  svg {
+    height: 13px;
+    margin-top: 2px;
+    transition: fill $t-standard;
+  }
+
+  &:hover svg {
+    fill: $c-mid-grey;
   }
 }
 
@@ -66,8 +86,20 @@
   Modifiers
 =========================== */
 .Bar--has-results {
+  box-shadow: 0;
+
   .Bar__icon,
   .Bar__input {
     background-color: $c-light-grey;
+  }
+}
+
+.Bar--has-selected {
+  .Bar__icon-search {
+    display: none;
+  }
+
+  .Bar__icon-clear {
+    display: block;
   }
 }
