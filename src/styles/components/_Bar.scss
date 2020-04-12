@@ -6,7 +6,6 @@
   width: 400px;
   border-radius: $br-standard;
   z-index: 1;
-  @include default-shadow();
 }
 
 /* ===========================
@@ -21,6 +20,9 @@
   border-radius: $br-standard;
   position: relative;
   z-index: 1;
+  transform: scale(0.9);
+  transition: transform 600ms $t-cubic-bez;
+  @include light-shadow();
 }
 
 .Bar__icon {
@@ -87,7 +89,9 @@
   Modifiers
 =========================== */
 .Bar--has-results {
-  box-shadow: 0;
+  .Bar__inner {
+    box-shadow: none;
+  }
 
   .Bar__icon,
   .Bar__input {
@@ -102,5 +106,18 @@
 
   .Bar__icon-clear {
     display: block;
+  }
+}
+
+.Bar--is-focussed {
+  .Bar__inner {
+    transform: scale(1);
+    @include default-shadow();
+  }
+
+  &.Bar--has-results {
+    .Bar__inner {
+      box-shadow: none;
+    }
   }
 }

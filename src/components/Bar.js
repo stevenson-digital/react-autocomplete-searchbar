@@ -6,9 +6,10 @@ import Results from './Results'
 const Bar = () => {
   // const { searchTerm, handleSetSearchTerm } = useSearchTerm()
   const [searchTerm, setSearchTerm] = useState('')
-  const [focussed, setFocussed] = useState(false)
+  const [hasValue, setHasValue] = useState(false)
   const [results, setResults] = useState([])
   const [hasSelected, setHasSelected] = useState(false)
+  const [isFocussed, setIsFocussed] = useState(false)
 
   const matchResults = (value) => {
     let results = []
@@ -29,7 +30,7 @@ const Bar = () => {
     setHasSelected(false)
     setSearchTerm(value)
     matchResults(value)
-    setFocussed((value.length > 0) ? true : false)
+    setHasValue((value.length > 0) ? true : false)
   }
 
   const updateInputValue = (value) =>
@@ -44,11 +45,14 @@ const Bar = () => {
   const clearSearch = () => {
     setHasSelected(false)
     setSearchTerm('')
-    setFocussed(false)
+    setHasValue(false)
   }
 
+  const handleIsFocussed = () =>
+    setIsFocussed(true)
+
   return (
-    <div className={"Bar a-fade-in-up " + ((results.length > 0) ? 'Bar--has-results' : '') + ((hasSelected) ? 'Bar--has-selected' : '')}>
+    <div className={"Bar a-fade-in-up" + ((results.length > 0) ? ' Bar--has-results' : '') + (hasSelected ? ' Bar--has-selected' : '') + (isFocussed ? ' Bar--is-focussed' : '')}>
       <Results
         results={results}
         updateInputValue={updateInputValue}
@@ -57,7 +61,7 @@ const Bar = () => {
       />
       <div className="Bar__inner">  
         <div className="Bar__icon">
-          <div className={"Bar__icon-search "  + (focussed ? 'dark' : '')}>
+          <div className={"Bar__icon-search "  + (hasValue ? 'dark' : '')}>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 511.999 511.999">
               <g>
                 <path d="M508.874,478.708L360.142,329.976c28.21-34.827,45.191-79.103,45.191-127.309c0-111.75-90.917-202.667-202.667-202.667
@@ -68,7 +72,7 @@ const Bar = () => {
             </svg>
           </div>
           <button
-            className={"Bar__icon-clear u-btn-clear "  + (focussed ? 'dark' : '')}
+            className={"Bar__icon-clear u-btn-clear "  + (hasValue ? 'dark' : '')}
             onClick={clearSearch}
           >
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 409.806 409.806">
@@ -87,6 +91,7 @@ const Bar = () => {
           type="text"
           placeholder="Search for country" 
           onChange={handleInputChange}
+          onClick={handleIsFocussed}
           value={searchTerm || ''}
         />
       </div>
