@@ -85,7 +85,7 @@ const Bar = () => {
         <input
           className="Bar__input"
           type="text"
-          placeholder="Search" 
+          placeholder="Search for country" 
           onChange={handleInputChange}
           value={searchTerm || ''}
         />

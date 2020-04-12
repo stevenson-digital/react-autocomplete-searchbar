@@ -5,6 +5,7 @@
   position: relative;
   width: 400px;
   border-radius: $br-standard;
+  z-index: 1;
   @include default-shadow();
 }
 
