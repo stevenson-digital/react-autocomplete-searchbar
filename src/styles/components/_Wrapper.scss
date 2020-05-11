@@ -8,6 +8,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  @media (max-width: $b-small) {
+    justify-content: space-between;
+  }
 }
 
 /* ===========================

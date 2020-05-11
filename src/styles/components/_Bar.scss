@@ -6,6 +6,15 @@
   width: 400px;
   border-radius: $br-standard;
   z-index: 1;
+  padding: 0 20px;
+
+  @media (max-width: $b-small) {
+    margin-top: 10vh;
+  }
+
+  @media (max-width: 440px) {
+    width: 100%;
+  }
 }
 
 /* ===========================
@@ -23,6 +32,10 @@
   transform: scale(0.9);
   transition: transform 600ms $t-cubic-bez;
   @include light-shadow();
+
+  @media (max-width: 1024px) {
+    transform: scale(1);
+  }
 }
 
 .Bar__icon {

@@ -2,13 +2,12 @@
   Results
 =========================== */
 .Results {
-  width: 100%;
+  width: calc(100% - 20px);
   position: absolute;
   z-index: 0;
   background-color: $c-white;
   border-radius: $br-standard;
-  transform: translate3d(0, 0, 0);
-  transition: transform $t-standard, width $t-standard;
+  transform: translate3d(-10px, -10px, 0);
   @include default-shadow();
 }
 
@@ -52,7 +51,6 @@
   Modifiers
 =========================== */
 .Results--populated {
-  width: calc(100% + 20px);
   padding-top: 70px;
-  transform: translate3d(-10px, -10px, 0);
+  margin-bottom: 30px;
 }
